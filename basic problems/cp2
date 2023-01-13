@@ -1,6 +1,60 @@
 // @vinayreddy18
 Invert a number to a minimum possible value
 
+Luke Skywalker gave Chewbacca an integer number x. Chewbacca isn't good at numbers but he loves inverting digits in them. Inverting digit t means replacing it with digit 9 - t.
+Help Chewbacca to transform the initial number x to the minimum possible positive number by inverting some (possibly, zero) digits. The decimal representation of the final number shouldn't start with a zero.
+Input
+The first line contains a single integer x (1 ≤ x ≤ 1018) — the number that Luke Skywalker gave to Chewbacca.
+
+Output
+Print the minimum possible positive number that Chewbacca can obtain after inverting some digits. The number shouldn't contain leading zeroes.
+INPUT 
+27
+OUTPUT
+22
+
+
+Solution:::
+
+
+// @vinayreddy18
+ 
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    long long n;
+    cin>>n;
+   
+    string out="";
+    while(n>0)
+    {
+        if(n==9)
+        {
+            out+="9";
+            n=n/10;
+            continue;
+        }
+        int rem=n%10;
+        int changed=9-rem;
+        if(rem<changed)
+        {
+            out+=to_string(rem);
+        }
+        else
+        {
+            out+=to_string(changed);
+        }
+        
+        n=n/10;
+    }
+    reverse(out.begin(),out.end());
+    cout<<out<<endl;    
+}
+
+
+Alternative solution::
 #include<bits/stdc++.h>
 using namespace std;
 
